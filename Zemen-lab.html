@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zemen Labs | Professional Websites Made Simple & Affordable</title>
+    <meta name="description" content="Zemen Labs designs modern, affordable websites for Ethiopian businesses. Cafes, stores, restaurants, hotels, and real estate.">
+    <meta name="keywords" content="web design, Ethiopia, affordable websites, cafe websites, store websites, restaurant websites, hotel websites, real estate websites">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* ========================================
+   ZEMEN LABS - Modern Business Website
+   Professional Web Design Agency
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    --primary: #1a5f4a;
+    --primary-light: #2d8a6e;
+    --primary-dark: #124a3a;
+    --accent: #d4a853;
+    --accent-light: #e8c97a;
+    --text-dark: #1a1a2e;
+    --text-medium: #4a4a5a;
+    --text-light: #6b6b7b;
+    --bg-white: #ffffff;
+    --bg-cream: #faf8f5;
+    --bg-warm: #f5f0eb;
+    --bg-dark: #1a1a2e;
+    --border: #e8e4df;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+    background: rgba(26,95,74,0.06);
+}
+
+.nav-link.active {
+    color: var(--primary);
+    background: rgba(26,95,74,0.08);
+}
+
+.nav-cta {
+    background: var(--primary);
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-left: 8px;
+}
+
+.nav-cta:hover {
+    background: var(--primary-dark);
+    color: white !important;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* ========================================
+   PAGE SYSTEM
+   ======================================== */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding-top: 72px;
+}
+
+.page.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-cream);
+    overflow: hidden;
+    padding: 120px 24px 80px;
+}
+
+.hero-bg {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(26,95,74,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(26,95,74,0.1);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    animation: slideUp 0.6s ease-out;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    animation: slideUp 0.6s ease-out 0.1s both;
+}
+
+.hero-title .highlight {
+    color: var(--primary);
+    position: relative;
+}
+
+.hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: rgba(212,168,83,0.3);
+    border-radius: 4px;
+    z-index: -1;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-medium);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+    animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+    animation: slideUp 0.6s ease-out 0.3s both;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    animation: slideUp 0.6s ease-out 0.4s both;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 6px;
+    display: block;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-indicator {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.scroll-indicator span {
+    width: 4px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 2px;
+    animation: scrollBounce 2s infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.5; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 16px rgba(26,95,74,0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,95,74,0.35);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-dark);
+    border: 2px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(26,95,74,0.04);
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.05rem;
+    margin-top: 16px;
+}
+
+/* ========================================
+   INTRO SECTION
+   ======================================== */
+.intro-section {
+    padding: 100px 0;
+    background: var(--bg-white);
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.intro-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.intro-text p {
+    color: var(--text-medium);
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.feature-list {
+    margin-top: 24px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: var(--text-medium);
+}
+
+.feature-list .check {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.intro-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.visual-card {
+    background: var(--bg-cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.visual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.visual-card:nth-child(3) {
+    grid-column: span 2;
+}
+
+.visual-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.visual-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+.visual-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* ========================================
+   SECTION HEADERS
+   ======================================== */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(26,95,74,0.08);
+    color: var(--primary);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.section-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   CATEGORIES SECTION
+   ======================================== */
+.categories-section {
+    padding: 100px 0;
+    background: var(--bg-cream);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.category-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid var(--border);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(26,95,74,0.15);
+}
+
+.card-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.category-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+}
+
+.card-content {
+    padding: 28px;
+    position: relative;
+}
+
+.card-badge {
+    position: absolute;
+    top: -14px;
+    right: 24px;
+    background: var(--accent);
+    color: var(--text-dark);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-badge.premium {
+    background: var(--primary);
+    color: white;
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.card-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.btn-card {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.btn-card:hover {
+    color: var(--primary-dark);
+}
+
+/* ========================================
+   PROCESS SECTION
+   ======================================== */
+.process-section {
+    padding: 100px 0;
+    background: var(--bg-white);
+}
+
+.process-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.step-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(26,95,74,0.1);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.step h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.step p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.step-connector {
+    width: 60px;
+    height: 2px;
+    background: var(--border);
+    margin-top: 60px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonials-section {
+    padding: 100px 0;
+    background: var(--bg-cream);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.stars {
+    color: var(--accent);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.testimonial-card > p {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.author-business {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.cta-box {
+    background: var(--primary);
+    border-radius: var(--radius-lg);
+    padding: 64px 48px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+
+.cta-box h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-box .btn-primary {
+    background: white;
+    color: var(--primary);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-box .btn-primary:hover {
+    background: var(--bg-cream);
+    color: var(--primary-dark);
+}
+
+/* ========================================
+   PAGE HERO (Sub-pages)
+   ======================================== */
+.page-hero {
+    padding: 120px 24px 80px;
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cafe-hero {
+    background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+}
+
+.store-hero {
+    background: linear-gradient(135deg, #f0ebe5 0%, #e0d8cc 100%);
+}
+
+.restaurant-hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 100%);
+    color: white;
+}
+
+.realestate-hero {
+    background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d5 100%);
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.page-tag {
+    display: inline-block;
+    background: rgba(26,95,74,0.1);
+    color: var(--primary);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.premium-tag {
+    background: rgba(212,168,83,0.2);
+    color: var(--accent);
+}
+
+.restaurant-hero .page-tag {
+    background: rgba(255,255,255,0.15);
+    color: var(--accent-light);
+}
+
+.page-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.restaurant-hero h1 {
+    color: white;
+}
+
+.page-hero p {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.restaurant-hero p {
+    color: rgba(255,255,255,0.8);
+}
+
+.page-price {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 28px;
+}
+
+.page-price span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.restaurant-hero .page-price {
+    color: var(--accent);
+}
+
+.restaurant-hero .page-price span {
+    color: rgba(255,255,255,0.6);
+}
+
+/* ========================================
+   PACKAGE DETAILS
+   ======================================== */
+.package-details {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+}
+
+.details-text h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+}
+
+.details-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: var(--text-medium);
+}
+
+.details-list .bullet {
+    color: var(--primary);
+    font-size: 0.6rem;
+}
+
+.details-features h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: var(--text-dark);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature-item {
+    background: var(--bg-cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.feature-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+.feature-item p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* ========================================
+   ORDER PAGE
+   ======================================== */
+.order-hero {
+    padding: 120px 24px 40px;
+    background: var(--bg-cream);
+    text-align: center;
+}
+
+.order-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.order-hero-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.order-section {
+    padding: 40px 0 100px;
+    background: var(--bg-white);
+}
+
+.order-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.order-form-wrapper {
+    background: var(--bg-cream);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    border: 1px solid var(--border);
+}
+
+.form-section {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form-section h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background: var(--bg-white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(26,95,74,0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+.file-upload {
+    position: relative;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--bg-white);
+}
+
+.file-upload:hover {
+    border-color: var(--primary);
+    background: rgba(26,95,74,0.02);
+}
+
+.file-upload input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.upload-icon {
+    font-size: 1.5rem;
+}
+
+.file-upload-label span:last-child {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.file-upload.required {
+    border-color: rgba(26,95,74,0.3);
+}
+
+/* Payment Section */
+.payment-section .payment-card {
+    background: var(--bg-white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.payment-icon {
+    font-size: 2rem;
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.payment-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.payment-detail {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+.payment-detail strong {
+    color: var(--primary);
+}
+
+/* Order Sidebar */
+.order-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-card {
+    background: var(--bg-cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+}
+
+.sidebar-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.sidebar-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.contact-item a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.trust-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trust-card li {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.4s ease;
+}
+
+.modal-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+}
+
+.modal-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.modal-content p {
+    color: var(--text-medium);
+    margin-bottom: 8px;
+}
+
+.modal-detail {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    background: var(--bg-dark);
+    color: white;
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand .logo {
+    color: white;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-contact p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    padding: 24px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .intro-visual {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .visual-card:nth-child(3) {
+        grid-column: auto;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .order-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: 20px;
+        gap: 4px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .nav-cta {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .step-connector {
+        display: none;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .cta-box {
+        padding: 40px 24px;
+    }
+    
+    .order-form-wrapper {
+        padding: 24px;
+    }
+    
+    .page-hero {
+        min-height: 400px;
+        padding: 100px 24px 60px;
+    }
+    
+    .intro-visual {
+        grid-template-columns: 1fr;
+    }
+    
+    .visual-card:nth-child(3) {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero {
+        padding: 100px 16px 60px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .page-price {
+        font-size: 2.2rem;
+    }
+    
+    .modal-content {
+        padding: 32px 24px;
+    }
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <span class="logo-icon">Z</span>
+                <span class="logo-text">Zemen Labs</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('cafe')" class="nav-link">Cafe Websites</a></li>
+                <li><a href="#" onclick="showPage('store')" class="nav-link">Store Websites</a></li>
+                <li><a href="#" onclick="showPage('restaurant')" class="nav-link">Restaurant & Hotel</a></li>
+                <li><a href="#" onclick="showPage('realestate')" class="nav-link">Real Estate</a></li>
+                <li><a href="#" onclick="showPage('order')" class="nav-link nav-cta">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <main id="page-home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge">Trusted by 50+ Ethiopian Businesses</div>
+                <h1 class="hero-title">Professional Websites<br>Made <span class="highlight">Simple</span> & <span class="highlight">Affordable</span></h1>
+                <p class="hero-subtitle">We help cafes, stores, restaurants, hotels, and real estate businesses in Ethiopia build a beautiful online presence — without the high costs.</p>
+                <div class="hero-cta">
+                    <a href="#" onclick="showPage('order')" class="btn btn-primary">Get Your Website</a>
+                    <a href="#categories" class="btn btn-secondary">See Our Work</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Mobile Friendly</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">7 Days</span>
+                        <span class="stat-label">Delivery Time</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <h2>Why Choose Zemen Labs?</h2>
+                        <p>We understand that running a business in Ethiopia is hard work. That is why we have made getting a professional website simple, fast, and affordable.</p>
+                        <p>No technical knowledge needed. No hidden fees. Just a beautiful website that helps your customers find you online.</p>
+                        <ul class="feature-list">
+                            <li><span class="check">✓</span> Modern, clean designs</li>
+                            <li><span class="check">✓</span> Works perfectly on phones</li>
+                            <li><span class="check">✓</span> WhatsApp integration</li>
+                            <li><span class="check">✓</span> Fast loading speed</li>
+                            <li><span class="check">✓</span> Easy to update</li>
+                        </ul>
+                    </div>
+                    <div class="intro-visual">
+                        <div class="visual-card">
+                            <div class="visual-icon">🚀</div>
+                            <h3>Launch Fast</h3>
+                            <p>Your website ready in just 7 days</p>
+                        </div>
+                        <div class="visual-card">
+                            <div class="visual-icon">💰</div>
+                            <h3>Affordable Pricing</h3>
+                            <p>Starting from 15,000 ETB</p>
+                        </div>
+                        <div class="visual-card">
+                            <div class="visual-icon">📱</div>
+                            <h3>Mobile First</h3>
+                            <p>Looks great on every device</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Our Services</span>
+                    <h2>Website Packages for Every Business</h2>
+                    <p>Choose the package that fits your business needs</p>
+                </div>
+                <div class="categories-grid">
+                    <!-- Cafe Card -->
+                    <div class="category-card" onclick="showPage('cafe')">
+                        <div class="card-image">
+                            <img src="assets/3_Feedel_Bistro_Interior_Design_is.png" alt="Cafe website design with warm interior" loading="lazy">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-badge">Most Popular</div>
+                            <h3>Cafe Websites</h3>
+                            <p>Beautiful websites for coffee shops, juice bars, and small food businesses. Menu, gallery, and contact included.</p>
+                            <div class="card-footer">
+                                <span class="price">15,000 ETB</span>
+                                <span class="btn-card">View Details →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card -->
+                    <div class="category-card" onclick="showPage('store')">
+                        <div class="card-image">
+                            <img src="assets/2_Modern_minimalist_clothing_store.png" alt="Modern clothing store interior" loading="lazy">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Store Websites</h3>
+                            <p>Showcase your products online. Perfect for clothing, electronics, shoe stores, and retail shops.</p>
+                            <div class="card-footer">
+                                <span class="price">20,000 ETB</span>
+                                <span class="btn-card">View Details →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant & Hotel Card -->
+                    <div class="category-card" onclick="showPage('restaurant')">
+                        <div class="card-image">
+                            <img src="assets/2_121_300_Luxury_Restaurant_Interior.png" alt="Luxury restaurant interior design" loading="lazy">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-badge premium">Premium</div>
+                            <h3>Restaurant & Hotel Websites</h3>
+                            <p>Elegant, premium websites for restaurants, hotels, and luxury food businesses. Reservation system included.</p>
+                            <div class="card-footer">
+                                <span class="price">30,000 ETB</span>
+                                <span class="btn-card">View Details →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real Estate Card -->
+                    <div class="category-card" onclick="showPage('realestate')">
+                        <div class="card-image">
+                            <img src="assets/6_562_900_Modern_Apartment_Building.png" alt="Modern apartment building exterior" loading="lazy">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-badge premium">Premium</div>
+                            <h3>Apartment & Real Estate</h3>
+                            <p>Professional property showcase websites for apartment sales, rentals, and real estate companies.</p>
+                            <div class="card-footer">
+                                <span class="price">40,000 ETB</span>
+                                <span class="btn-card">View Details →</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">How It Works</span>
+                    <h2>Getting Your Website is Easy</h2>
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">📝</div>
+                        <h3>Fill the Order Form</h3>
+                        <p>Tell us about your business and what you need</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">💳</div>
+                        <h3>Make Payment</h3>
+                        <p>Pay easily via Telebirr and upload your receipt</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">🎨</div>
+                        <h3>We Design</h3>
+                        <p>Our team builds your beautiful website</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-icon">🚀</div>
+                        <h3>Go Live</h3>
+                        <p>Your website is ready in 7 days</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Testimonials</span>
+                    <h2>What Our Clients Say</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Zemen Labs created a beautiful website for my cafe in just one week. My customers can now see our menu online. Very professional team!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <span class="author-name">Abebe Kebede</span>
+                                <span class="author-business">Abebe's Coffee House, Addis Ababa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The price was very fair and the website looks amazing on mobile phones. My clothing store gets more customers now through Google searches."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <span class="author-name">Meron Tadesse</span>
+                                <span class="author-business">Meron Fashion, Bole</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"I needed a website for my small hotel. Zemen Labs delivered exactly what I wanted. The reservation feature helps us manage bookings easily."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">D</div>
+                            <div class="author-info">
+                                <span class="author-name">Dawit Hailu</span>
+                                <span class="author-business">Sunrise Hotel, Hawassa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Ready to Grow Your Business Online?</h2>
+                    <p>Join 50+ Ethiopian businesses that trust Zemen Labs for their online presence.</p>
+                    <a href="#" onclick="showPage('order')" class="btn btn-primary btn-large">Order Your Website Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CAFE PAGE -->
+    <main id="page-cafe" class="page">
+        <section class="page-hero cafe-hero">
+            <div class="page-hero-content">
+                <span class="page-tag">Website Package</span>
+                <h1>Cafe Websites</h1>
+                <p>Beautiful, simple websites for coffee shops, juice bars, and small food businesses.</p>
+                <div class="page-price">15,000 <span>ETB</span></div>
+                <a href="#" onclick="showPage('order'); prefillCategory('cafe')" class="btn btn-primary btn-large">Order This Package</a>
+            </div>
+        </section>
+
+        <section class="package-details">
+            <div class="container">
+                <div class="details-grid">
+                    <div class="details-text">
+                        <h2>Perfect For</h2>
+                        <ul class="details-list">
+                            <li><span class="bullet">●</span> Small cafes and coffee shops</li>
+                            <li><span class="bullet">●</span> Juice and smoothie bars</li>
+                            <li><span class="bullet">●</span> Small food businesses</li>
+                            <li><span class="bullet">●</span> Bakeries and pastry shops</li>
+                        </ul>
+                    </div>
+                    <div class="details-features">
+                        <h2>What You Get</h2>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <span class="feature-icon">🏠</span>
+                                <h4>Beautiful Homepage</h4>
+                                <p>Eye-catching design that makes a great first impression</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📋</span>
+                                <h4>Menu Section</h4>
+                                <p>Show your drinks, food, and prices clearly</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📸</span>
+                                <h4>Photo Gallery</h4>
+                                <p>Showcase your space, food, and atmosphere</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📞</span>
+                                <h4>Contact Information</h4>
+                                <p>Phone, email, and address clearly displayed</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🗺️</span>
+                                <h4>Location Map</h4>
+                                <p>Google Maps integration so customers can find you</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💬</span>
+                                <h4>WhatsApp Button</h4>
+                                <p>Customers can message you directly from your site</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📱</span>
+                                <h4>Mobile-Friendly</h4>
+                                <p>Looks perfect on phones, tablets, and computers</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⚡</span>
+                                <h4>Fast Loading</h4>
+                                <p>Optimized for slow internet connections</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- STORE PAGE -->
+    <main id="page-store" class="page">
+        <section class="page-hero store-hero">
+            <div class="page-hero-content">
+                <span class="page-tag">Website Package</span>
+                <h1>Store Websites</h1>
+                <p>Showcase your products online. Perfect for retail shops of all kinds.</p>
+                <div class="page-price">20,000 <span>ETB</span></div>
+                <a href="#" onclick="showPage('order'); prefillCategory('store')" class="btn btn-primary btn-large">Order This Package</a>
+            </div>
+        </section>
+
+        <section class="package-details">
+            <div class="container">
+                <div class="details-grid">
+                    <div class="details-text">
+                        <h2>Perfect For</h2>
+                        <ul class="details-list">
+                            <li><span class="bullet">●</span> Clothing and fashion stores</li>
+                            <li><span class="bullet">●</span> Shoe stores</li>
+                            <li><span class="bullet">●</span> Electronics shops</li>
+                            <li><span class="bullet">●</span> Small retail businesses</li>
+                        </ul>
+                    </div>
+                    <div class="details-features">
+                        <h2>What You Get</h2>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <span class="feature-icon">🖼️</span>
+                                <h4>Product Gallery</h4>
+                                <p>Display your products with beautiful images</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">ℹ️</span>
+                                <h4>Business Information</h4>
+                                <p>About your store, hours, and services</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📞</span>
+                                <h4>Contact Section</h4>
+                                <p>Easy ways for customers to reach you</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🎁</span>
+                                <h4>Promotional Sections</h4>
+                                <p>Highlight sales, new arrivals, and offers</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📱</span>
+                                <h4>Mobile-Friendly</h4>
+                                <p>Works perfectly on all devices</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔍</span>
+                                <h4>SEO Optimized</h4>
+                                <p>Found easily on Google searches</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RESTAURANT & HOTEL PAGE -->
+    <main id="page-restaurant" class="page">
+        <section class="page-hero restaurant-hero">
+            <div class="page-hero-content">
+                <span class="page-tag premium-tag">Premium Package</span>
+                <h1>Restaurant & Hotel Websites</h1>
+                <p>Elegant, premium websites for restaurants, hotels, and luxury food businesses.</p>
+                <div class="page-price">30,000 <span>ETB</span></div>
+                <a href="#" onclick="showPage('order'); prefillCategory('restaurant')" class="btn btn-primary btn-large">Order This Package</a>
+            </div>
+        </section>
+
+        <section class="package-details">
+            <div class="container">
+                <div class="details-grid">
+                    <div class="details-text">
+                        <h2>Perfect For</h2>
+                        <ul class="details-list">
+                            <li><span class="bullet">●</span> Restaurants and fine dining</li>
+                            <li><span class="bullet">●</span> Hotels and guest houses</li>
+                            <li><span class="bullet">●</span> Luxury food businesses</li>
+                            <li><span class="bullet">●</span> Catering services</li>
+                        </ul>
+                    </div>
+                    <div class="details-features">
+                        <h2>What You Get</h2>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <span class="feature-icon">✨</span>
+                                <h4>Modern Homepage</h4>
+                                <p>Premium design with elegant animations</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📋</span>
+                                <h4>Menu Section</h4>
+                                <p>Beautiful menu display with categories</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📸</span>
+                                <h4>Image Gallery</h4>
+                                <p>Showcase your venue, rooms, and food</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🗺️</span>
+                                <h4>Location</h4>
+                                <p>Interactive map with directions</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📞</span>
+                                <h4>Contact Section</h4>
+                                <p>Multiple contact methods</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📅</span>
+                                <h4>Reservation Form</h4>
+                                <p>Customers can book tables or rooms online</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📱</span>
+                                <h4>Mobile-Friendly</h4>
+                                <p>Perfect experience on all devices</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⚡</span>
+                                <h4>Premium Performance</h4>
+                                <p>Optimized for speed and reliability</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- REAL ESTATE PAGE -->
+    <main id="page-realestate" class="page">
+        <section class="page-hero realestate-hero">
+            <div class="page-hero-content">
+                <span class="page-tag premium-tag">Premium Package</span>
+                <h1>Apartment & Real Estate Websites</h1>
+                <p>Professional property showcase websites for real estate businesses.</p>
+                <div class="page-price">40,000 <span>ETB</span></div>
+                <a href="#" onclick="showPage('order'); prefillCategory('realestate')" class="btn btn-primary btn-large">Order This Package</a>
+            </div>
+        </section>
+
+        <section class="package-details">
+            <div class="container">
+                <div class="details-grid">
+                    <div class="details-text">
+                        <h2>Perfect For</h2>
+                        <ul class="details-list">
+                            <li><span class="bullet">●</span> Apartment sales</li>
+                            <li><span class="bullet">●</span> Rental businesses</li>
+                            <li><span class="bullet">●</span> Real estate companies</li>
+                            <li><span class="bullet">●</span> Property developers</li>
+                        </ul>
+                    </div>
+                    <div class="details-features">
+                        <h2>What You Get</h2>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <span class="feature-icon">🏢</span>
+                                <h4>Property Gallery</h4>
+                                <p>Showcase properties with stunning images</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📋</span>
+                                <h4>Property Information</h4>
+                                <p>Details, pricing, and specifications</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🖼️</span>
+                                <h4>Image Showcase</h4>
+                                <p>High-quality photo galleries for each property</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📅</span>
+                                <h4>Contact Form</h4>
+                                <p>Interested buyers can reach you easily</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🗺️</span>
+                                <h4>Location Information</h4>
+                                <p>Maps and neighborhood details</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📱</span>
+                                <h4>Mobile-Friendly</h4>
+                                <p>Works on phones, tablets, and desktops</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔍</span>
+                                <h4>Search Optimized</h4>
+                                <p>Found by people looking for properties</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⚡</span>
+                                <h4>Fast Loading</h4>
+                                <p>Optimized images for quick loading</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ORDER PAGE -->
+    <main id="page-order" class="page">
+        <section class="order-hero">
+            <div class="container">
+                <div class="order-hero-content">
+                    <span class="page-tag">Order Now</span>
+                    <h1>Start Your Website</h1>
+                    <p>Fill out the form below and we will get back to you within 24 hours.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-section">
+            <div class="container">
+                <div class="order-layout">
+                    <div class="order-form-wrapper">
+                        <form id="orderForm" class="order-form">
+                            <div class="form-section">
+                                <h3>Your Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name *</label>
+                                        <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="09XX XXX XXX">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Business Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="businessName">Business Name *</label>
+                                        <input type="text" id="businessName" name="businessName" required placeholder="Your business name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessCategory">Business Category *</label>
+                                        <select id="businessCategory" name="businessCategory" required>
+                                            <option value="">Select category</option>
+                                            <option value="cafe">Cafe / Coffee Shop</option>
+                                            <option value="juice">Juice Bar</option>
+                                            <option value="restaurant">Restaurant</option>
+                                            <option value="hotel">Hotel / Guest House</option>
+                                            <option value="clothing">Clothing Store</option>
+                                            <option value="electronics">Electronics Store</option>
+                                            <option value="shoes">Shoe Store</option>
+                                            <option value="realestate">Real Estate</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="websiteType">Website Package *</label>
+                                    <select id="websiteType" name="websiteType" required>
+                                        <option value="">Select package</option>
+                                        <option value="cafe">Cafe Website — 15,000 ETB</option>
+                                        <option value="store">Store Website — 20,000 ETB</option>
+                                        <option value="restaurant">Restaurant & Hotel — 30,000 ETB</option>
+                                        <option value="realestate">Real Estate — 40,000 ETB</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessDesc">Tell Us About Your Business</label>
+                                    <textarea id="businessDesc" name="businessDesc" rows="4" placeholder="Describe your business, what you sell, your location, and any special requests..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Upload Files</h3>
+                                <div class="form-group">
+                                    <label for="logoUpload">Business Logo (if you have one)</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="logoUpload" name="logoUpload" accept="image/*">
+                                        <div class="file-upload-label">
+                                            <span class="upload-icon">📎</span>
+                                            <span>Click to upload logo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="photosUpload">Business Photos</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="photosUpload" name="photosUpload" accept="image/*" multiple>
+                                        <div class="file-upload-label">
+                                            <span class="upload-icon">📎</span>
+                                            <span>Click to upload photos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="requirements">Additional Requirements</label>
+                                    <textarea id="requirements" name="requirements" rows="3" placeholder="Any special features, colors, or design preferences..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section payment-section">
+                                <h3>Payment Information</h3>
+                                <div class="payment-card">
+                                    <div class="payment-method">
+                                        <span class="payment-icon">📱</span>
+                                        <div class="payment-info">
+                                            <span class="payment-name">Telebirr</span>
+                                            <span class="payment-detail">Name: <strong>Eleni Kassaye</strong></span>
+                                            <span class="payment-detail">Number: <strong>0991736569</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="paymentProof">Upload Payment Proof (Screenshot) *</label>
+                                    <div class="file-upload required">
+                                        <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required>
+                                        <div class="file-upload-label">
+                                            <span class="upload-icon">📎</span>
+                                            <span>Upload Telebirr payment screenshot</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit">Submit Order</button>
+                        </form>
+                    </div>
+
+                    <div class="order-sidebar">
+                        <div class="sidebar-card">
+                            <h4>Need Help?</h4>
+                            <p>Have questions? Contact us directly.</p>
+                            <div class="contact-item">
+                                <span>📧</span>
+                                <a href="mailto:youwebsite673@gmail.com">youwebsite673@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span>📱</span>
+                                <span>Telebirr: 0991736569</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-card trust-card">
+                            <h4>Why Trust Us?</h4>
+                            <ul>
+                                <li>✓ 50+ completed websites</li>
+                                <li>✓ 7-day delivery guarantee</li>
+                                <li>✓ Free minor updates</li>
+                                <li>✓ Mobile-friendly designs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h2>Thank You!</h2>
+            <p>We have received your order and will contact you soon.</p>
+            <p class="modal-detail">Our team will reach out to you within 24 hours to discuss your website.</p>
+            <button onclick="closeModal()" class="btn btn-primary">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" onclick="showPage('home')">
+                        <span class="logo-icon">Z</span>
+                        <span class="logo-text">Zemen Labs</span>
+                    </a>
+                    <p>Professional websites made simple and affordable for Ethiopian businesses.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('cafe')">Cafe Websites</a></li>
+                        <li><a href="#" onclick="showPage('store')">Store Websites</a></li>
+                        <li><a href="#" onclick="showPage('restaurant')">Restaurant & Hotel</a></li>
+                        <li><a href="#" onclick="showPage('realestate')">Real Estate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('order')">Order Now</a></li>
+                        <li><a href="mailto:youwebsite673@gmail.com">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📧 youwebsite673@gmail.com</p>
+                    <p>📱 Telebirr: 0991736569</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Zemen Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// ========================================
+// ZEMEN LABS - Interactive JavaScript
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+        } else {
+            navbar.style.boxShadow = 'none';
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.category-card, .step, .testimonial-card, .feature-item, .visual-card').forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+    });
+
+    // File upload visual feedback
+    document.querySelectorAll('.file-upload input').forEach(input => {
+        input.addEventListener('change', function() {
+            const label = this.parentElement.querySelector('.file-upload-label span:last-child');
+            if (this.files.length > 0) {
+                const fileName = this.files[0].name;
+                label.textContent = fileName.length > 25 ? fileName.substring(0, 25) + '...' : fileName;
+                label.style.color = 'var(--primary)';
+                label.style.fontWeight = '600';
+                this.parentElement.style.borderColor = 'var(--primary)';
+                this.parentElement.style.background = 'rgba(26,95,74,0.04)';
+            }
+        });
+    });
+
+    // Order form submission
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate required fields
+            const requiredFields = orderForm.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                    field.style.boxShadow = '0 0 0 3px rgba(231, 76, 60, 0.1)';
+                } else {
+                    field.style.borderColor = '';
+                    field.style.boxShadow = '';
+                }
+            });
+            
+            if (isValid) {
+                // Show success modal
+                const modal = document.getElementById('successModal');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Reset form
+                orderForm.reset();
+                document.querySelectorAll('.file-upload-label span:last-child').forEach(label => {
+                    const defaultText = label.parentElement.querySelector('input').id === 'paymentProof' 
+                        ? 'Upload Telebirr payment screenshot'
+                        : label.parentElement.querySelector('input').id === 'logoUpload'
+                        ? 'Click to upload logo'
+                        : 'Click to upload photos';
+                    label.textContent = defaultText;
+                    label.style.color = '';
+                    label.style.fontWeight = '';
+                });
+                document.querySelectorAll('.file-upload').forEach(upload => {
+                    upload.style.borderColor = '';
+                    upload.style.background = '';
+                });
+            }
+        });
+    }
+
+    // Close modal on outside click
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Add subtle parallax to hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroBg = hero.querySelector('.hero-bg');
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    }
+});
+
+// ========================================
+// PAGE NAVIGATION
+// ========================================
+function showPage(pageName) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Show target page
+    const targetPage = document.getElementById('page-' + pageName);
+    if (targetPage) {
+        targetPage.classList.add('active');
+    }
+    
+    // Update nav active state
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Find matching nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        const onclickAttr = link.getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes("'" + pageName + "'")) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    // Update page title
+    const titles = {
+        'home': 'Zemen Labs | Professional Websites Made Simple & Affordable',
+        'cafe': 'Cafe Websites | Zemen Labs',
+        'store': 'Store Websites | Zemen Labs',
+        'restaurant': 'Restaurant & Hotel Websites | Zemen Labs',
+        'realestate': 'Real Estate Websites | Zemen Labs',
+        'order': 'Order Your Website | Zemen Labs'
+    };
+    
+    if (titles[pageName]) {
+        document.title = titles[pageName];
+    }
+    
+    // Close mobile menu
+    const navLinksEl = document.getElementById('navLinks');
+    if (navLinksEl) {
+        navLinksEl.classList.remove('active');
+    }
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    if (mobileMenuBtn) {
+        const spans = mobileMenuBtn.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+}
+
+// ========================================
+// PREFILL CATEGORY
+// ========================================
+function prefillCategory(category) {
+    const select = document.getElementById('websiteType');
+    if (select) {
+        select.value = category;
+    }
+    
+    // Also try to match business category
+    const businessSelect = document.getElementById('businessCategory');
+    if (businessSelect) {
+        const mapping = {
+            'cafe': 'cafe',
+            'store': 'clothing',
+            'restaurant': 'restaurant',
+            'realestate': 'realestate'
+        };
+        if (mapping[category]) {
+            businessSelect.value = mapping[category];
+        }
+    }
+}
+
+// ========================================
+// CLOSE MODAL
+// ========================================
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    showPage('home');
+}
+
+// ========================================
+// FORM VALIDATION HELPERS
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Clear error styles on input
+    document.querySelectorAll('input, select, textarea').forEach(field => {
+        field.addEventListener('input', function() {
+            this.style.borderColor = '';
+            this.style.boxShadow = '';
+        });
+        
+        field.addEventListener('focus', function() {
+            this.style.borderColor = '';
+            this.style.boxShadow = '';
+        });
+    });
+
+    // Phone number formatting
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.slice(0, 10);
+            e.target.value = value;
+        });
+    }
+});
+
+// ========================================
+// PERFORMANCE: Lazy load images
+// ========================================
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+    </script>
+</body>
+</html>
